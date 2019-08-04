@@ -1,0 +1,4 @@
+web/node_modules
+web/.idea
+network/node_modules
+.DS_Store
