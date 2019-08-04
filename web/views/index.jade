@@ -5,8 +5,10 @@ block content
     each thing in news.slice(0, 2)
       .news-item-large
         img(src="https://picsum.photos/540/350/?"+thing.id, height="350")
+        h4.category= thing.category.toUpperCase()
         h2= thing.title
     each thing in news.slice(2)
       .news-item
         img(src="https://picsum.photos/350/200/?"+thing.id, height="200")
+        h4.category= thing.category.toUpperCase()
         h2= thing.title

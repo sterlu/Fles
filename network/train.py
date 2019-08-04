@@ -9,11 +9,12 @@ t.reset()
 t.train_from_file('/content/drive/My Drive/Colab Notebooks/input.txt',
                   new_model=True,
                   word_level=True,
-                  num_epochs=50,
-                  gen_epochs=2,
+                  num_epochs=100,
+                  gen_epochs=5,
                   max_length=8,
                   batch_size=1024,
-                  rnn_bidirectional=False,
+                  max_words=50000,
+                  rnn_bidirectional=True
 )
 
 print(t.model.summary())

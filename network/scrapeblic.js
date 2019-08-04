@@ -10,10 +10,10 @@ const _isUpper = str => str && str === str.toUpperCase()
 const scrapeBlic = async (continuation = '') => {
     const response = await fetch(
         `https://feedly.com/v3/streams/contents`
-            + `?streamId=feed%2Fhttps%3A%2F%2Fwww.blic.rs%2Frss%2Fdanasnje-vesti` 
-            + `&count=1000`
-            + `&ranked=newest`
-            + `&continuation=${continuation}`
+        + `?streamId=feed%2Fhttps%3A%2F%2Fwww.blic.rs%2Frss%2Fdanasnje-vesti`
+        + `&count=1000`
+        + `&ranked=newest`
+        + `&continuation=${continuation}`
     )
     const data = await response.json()
     console.log('continue from ', data.continuation)
@@ -27,14 +27,11 @@ const scrapeBlic = async (continuation = '') => {
         }
         const normalizedTitle = _title.join(' ').replace(/[„“"']/g, '');
         hypeTitle = hypeTitle.replace(/[„“"']/g, '');
-        try {
-            await pool.query(`
-		     INSERT INTO blichronika
-		       (id, title, summary, url, published, hype_title) 
-		       VALUES ($1, $2, $3, $4, $5, $6)
-		    `, [id, normalizedTitle, summary && summary.content, originId, published, hypeTitle]);
-        } catch (e) {
-        }
+        await pool.query(`
+         INSERT INTO blic
+           (id, title, summary, url, published, hype_title) 
+           VALUES ($1, $2, $3, $4, $5, $6)
+        `, [id, normalizedTitle, summary && summary.content, originId, published, hypeTitle]);
     })
     Promise.all(promises).then(() => {
         if (data.continuation) scrapeBlic(data.continuation)
