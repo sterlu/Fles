@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
   try {
     client.connect();
 
-    const news = await client.query(`SELECT * FROM generated ORDER BY random() LIMIT 11`);
+    const news = await client.query(`SELECT * FROM generated ORDER BY random() LIMIT 14`);
     console.log(news.rows);
 
     res.render('index', { title: 'Fleš Vesti', news: news.rows });

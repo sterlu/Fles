@@ -1,7 +1,7 @@
 import re
 
-input_file = open("input.txt", "r")
-output_file = open("input.prepared.txt", "w")
+input_file = open("summaries.txt", "r")
+output_file = open("summaries.prepared.txt", "w")
 
 skipped_first = False
 for line in input_file:
@@ -9,8 +9,9 @@ for line in input_file:
         skipped_first = True
         continue
 
-    line = re.sub(r'^"', '', line)
-    line = re.sub(r'"$', '', line)
+    line = line.replace('ž', 'ž').replace('š', 'š').replace('&quot;', '"').replace('&amp;', '&')
+    line = re.sub(r'^(")*', '', line)
+    line = re.sub(r'(")*$', '', line)
 
     output_file.write(line.strip() + '\n')
 
