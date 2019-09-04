@@ -2,13 +2,13 @@ from textgenrnn import textgenrnn
 from flask import Flask, request, jsonify
 from .utils import normalize_title
 
-title_model = textgenrnn(weights_path='models/5/naslovi_weights.hdf5',
-                         vocab_path='models/5/naslovi_vocab.json',
-                         config_path='models/5/naslovi_config.json')
+title_model = textgenrnn(weights_path='network/models/5/naslovi_weights.hdf5',
+                         vocab_path='network/models/5/naslovi_vocab.json',
+                         config_path='network/models/5/naslovi_config.json')
 
-pre = textgenrnn(weights_path='models/0/blic_naslovi_hype_weights.hdf5',
-                 vocab_path='models/0/blic_naslovi_hype_vocab.json',
-                 config_path='models/0/blic_naslovi_hype_config.json')
+pre = textgenrnn(weights_path='network/models/0/blic_naslovi_hype_weights.hdf5',
+                 vocab_path='network/models/0/blic_naslovi_hype_vocab.json',
+                 config_path='network/models/0/blic_naslovi_hype_config.json')
 
 
 def generate(prefix="", n=1):
