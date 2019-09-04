@@ -17,7 +17,7 @@ def random_cat():
     return categories[random.randint(0, len(categories) - 1)]
 
 
-conn = pg8000.connect(database='scraped_news', user='nikolavukovic')
+conn = pg8000.connect(database='scraped_news', user='postgres')
 cursor = conn.cursor()
 
 for i in range(0, 1):
