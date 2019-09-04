@@ -8,19 +8,25 @@ block content
       each thing in news.slice(9)
         .news-item.news-item-mini
           img(src="https://picsum.photos/210/150/?" + thing.id, height="150")
-          h2= thing.title
+          h2
+            b= thing.pre_title + " "
+            = thing.title
           h4.category= thing.category.toUpperCase()
     .mid-column
       each thing in news.slice(0, 1)
         .news-item.news-item-cover
           img(src="https://picsum.photos/570/300/?" + thing.id, height="300")
-          h2= thing.title
+          h2
+            b= thing.pre_title + " "
+            = thing.title
           h4.category= thing.category.toUpperCase()
       .flex-container.wrap
         each thing in news.slice(1, 3)
           .news-item
             img(src="https://picsum.photos/275/150/?" + thing.id, height="150")
-            h2= thing.title
+            h2
+              b= thing.pre_title + " "
+              = thing.title
             h4.category= thing.category.toUpperCase()
       .subheader
         span= "Aktuelno"
@@ -29,6 +35,8 @@ block content
         each thing in news.slice(3, 9)
           .news-item
             img(src="https://picsum.photos/275/150/?" + thing.id, height="150")
-            h2= thing.title
+            h2
+              b= thing.pre_title + " "
+              = thing.title
             h4.category= thing.category.toUpperCase()
     .right-column

@@ -51,6 +51,12 @@ a {
     justify-content: space-between;
 }
 
+.error-container {
+    padding: 20px;
+    background-color: white;
+    color: darkred;
+}
+
 .home-container {
     padding: 20px 0;
     background-color: white;
@@ -81,6 +87,8 @@ a {
 .news-item h2 {
     font-size: 1.8rem;
     margin: 1rem 0;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 .news-item h4 {
     font-size: 1.1rem;

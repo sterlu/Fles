@@ -1,24 +1,29 @@
-from textgenrnn import textgenrnn
+import sys
 
-# t = textgenrnn(name="blic_naslovi_full")
-t = textgenrnn(name="blic_naslovi_full",
-               weights_path='blic_naslovi_mini2_weights.hdf5',
-               vocab_path='blic_naslovi_mini2_vocab.json',
-               config_path='blic_naslovi_mini2_config.json')
+errorLog = open("stderr.txt", "w", 1)
+errorLog.write("---Starting Error Log---\n")
+sys.stderr = errorLog
+stdoutLog = open("stdout.txt", "w", 1)
+stdoutLog.write("---Starting Standard Out Log---\n")
+sys.stdout = stdoutLog
+
+import tensorflow
+from textgenrnn import textgenrnn
+t = textgenrnn(name="naslovi")
 t.reset()
-t.train_from_file('/content/drive/My Drive/Colab Notebooks/input.txt',
+
+t.train_from_file('naslovi.input.prepared', 
                   new_model=True,
                   word_level=True,
-                  num_epochs=100,
-                  gen_epochs=5,
+                  num_epochs=5,
+                  gen_epochs=1,
                   max_length=8,
-                  batch_size=1024,
-                  max_words=50000,
-                  rnn_bidirectional=True
+                  batch_size=2048,
+                  max_words=100000,
+                  rnn_size=256,
+                  rnn_layers=4,
+                  dropout=0.2
 )
-
-print(t.model.summary())
-
 
 # num_epochs: Number of epochs to train for (default: 50)
 # gen_epochs: Number of epochs to run between generating sample outputs; good for measuring model progress (default: 1)
