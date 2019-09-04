@@ -1,2 +1,4 @@
 textgenrnn
+tensorflow
 pg8000
+flask
