@@ -34,4 +34,5 @@ def add_cors_headers(response):
 app.after_request(add_cors_headers)
 
 
-app.run(port=5000)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
