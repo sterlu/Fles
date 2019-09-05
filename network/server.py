@@ -6,12 +6,13 @@ title_model = textgenrnn(weights_path='network/models/5/naslovi_weights.hdf5',
                          vocab_path='network/models/5/naslovi_vocab.json',
                          config_path='network/models/5/naslovi_config.json')
 
+
 def generate(prefix="", n=1):
     titles = title_model.generate(n, temperature=0.8, return_as_list=True, prefix=prefix)
-    return map(normalize_title, titles)
+    return list(map(lambda t: normalize_title(t, '')[0], titles))
 
 
-# generate()
+generate()
 
 app = Flask(__name__)
 
