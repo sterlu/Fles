@@ -37,3 +37,5 @@ for i in range(0, 1):
     cursor.execute('INSERT INTO generated (title, pre_title, category) VALUES (%s, %s, %s)',
                    (main_title, pre_title, random_cat()))
 conn.commit()
+cursor.close()
+conn.close()
