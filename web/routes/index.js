@@ -3,7 +3,7 @@ const router = express.Router();
 const { Client } = require('pg');
 
 router.get('/', async (req, res, next) => {
-  const client = new Client({database: 'scraped_news', user: 'postgres'});
+  const client = new Client({database: 'scraped_news', user: 'nikolavukovic'});
   try {
     client.connect();
 
