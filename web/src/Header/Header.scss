@@ -1,0 +1,46 @@
+
+.nav {
+  color: white;
+
+  .nav-primary {
+    background-color: #1400FF;
+
+    .container {
+      height: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .nav-secondary {
+    background-color: #1E0AB9;
+    height: 50px;
+  }
+
+  .logo {
+    transition: all .2s;
+
+    &:hover {
+      opacity: .9;
+    }
+  }
+
+  .reporter-cta {
+    text-decoration: none;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    background-color: #DC0000;
+    color: white;
+    font-weight: bold;
+    padding: 0 20px;
+    font-size: 1.8rem;
+    transition: all .2s;
+
+    &:hover {
+      background-color: darken(#DC0000, 3%);
+    }
+  }
+}
+

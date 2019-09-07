@@ -1,0 +1,74 @@
+html, body {
+  font: 14px "Open Sans", Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  //background: radial-gradient(1295.00px at 50% 50%, #BCE4F8 0%, #7FD1F4 100%);
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.4rem;
+  min-width: 1200px;
+}
+
+.container {
+  max-width: 1300px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-container.wrap {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.error-container {
+  padding: 20px;
+  background-color: white;
+  color: darkred;
+}
+
+hr {
+  border-color: #1400FF;
+}
+
+.subheader {
+  border-bottom: 1px solid #1400FF;
+  margin-bottom: 10px;
+}
+
+.subheader span {
+  display: inline-block;
+  background-color: #1400FF;
+  padding: 12px 15px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.ad {
+  position: absolute;
+  top: 130px;
+  z-index: 0;
+  width: 200px;
+  height: 700px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.ad-left {
+  background-image: url("/images/ad-left.png");
+  left: calc(50% - 750px);
+}
+
+.ad-right {
+  background-image: url("/images/ad-right.png");
+  right: calc(50% - 750px);
+}
+
