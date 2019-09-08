@@ -1,6 +1,8 @@
 import React from 'react';
 import './Home.scss';
 
+const formatDate = date => (new Date(date)).toTimeString().substr(0, 5);
+
 const ArticleImage = ({ w, h, article }) => (
   <img
     src={`https://source.unsplash.com/random/${w}x${h}/?${['people', 'sport', 'police'][article.id % 3]}/${article.id}`}
@@ -43,7 +45,7 @@ class Home extends React.Component {
           <div className="news-item-hero news-item">
             <div>
               <h4 className="category">
-                {articles[0].category.toUpperCase()} — {articles[0].created.substr(11, 5)}
+                {articles[0].category.toUpperCase()} — {formatDate(articles[0].created)}
               </h4>
               <h2>
                 <b>{articles[0].pre_title}</b> {articles[0].title}
@@ -57,7 +59,7 @@ class Home extends React.Component {
                 <div className="news-item" key={article.id}>
                   <ArticleImage w={300} h={200} article={article} />
                   <h4 className="category">
-                    {article.category.toUpperCase()} — {article.created.substr(11, 5)}
+                    {article.category.toUpperCase()} — {formatDate(article.created)}
                   </h4>
                   <h2>
                     <b>{article.pre_title}</b> {article.title}
@@ -80,7 +82,7 @@ class Home extends React.Component {
                     <b>{article.pre_title}</b> {article.title}
                   </h2>
                   <h4 className="category">
-                    VS — {article.created.substr(11, 5)}
+                    VS — {formatDate(article.created)}
                   </h4>
                 </div>
               </div>
