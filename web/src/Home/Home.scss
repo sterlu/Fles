@@ -18,6 +18,11 @@
   .news-item {
     flex: 0 0 275px;
     cursor: pointer;
+    animation: appear .2s;
+    @keyframes appear {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
 
     &:hover h2 {
       text-decoration: underline;
