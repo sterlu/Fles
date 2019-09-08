@@ -8,7 +8,7 @@ title_model = textgenrnn(weights_path='network/models/5/naslovi_weights.hdf5',
 
 
 def generate(prefix="", n=1):
-    titles = title_model.generate(n, temperature=0.8, return_as_list=True, prefix=prefix)
+    titles = title_model.generate(n, temperature=0.6, return_as_list=True, prefix=prefix)
     return list(map(lambda t: normalize_title('', t)[1], titles))
 
 
