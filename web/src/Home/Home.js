@@ -20,7 +20,7 @@ class Home extends React.Component {
   }
 
   fetchLatest() {
-    const apiBase = process.env.ENV === 'production' ? '' : 'http://localhost:3000';
+    const apiBase = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3000';
     fetch(`${apiBase}/latest`)
       .then(res => res.json())
       .then(res => this.setState({ articles: res.articles, }))
