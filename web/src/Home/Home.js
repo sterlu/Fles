@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './Home.scss';
+import Reporter from '../Reporter/Reporter';
+import ReporterFAB from './ReporterFAB/ReporterFAB';
 
 const formatDate = date => (new Date(date)).toTimeString().substr(0, 5);
 
@@ -14,12 +16,8 @@ const ArticleImage = ({ w, h, article }) => (
 );
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    const { articles } = this.props;
+    const { articles, reported } = this.props;
     if (articles.length === 0)
       return <div />;
 
@@ -58,7 +56,7 @@ class Home extends React.Component {
             <span>Vesti Fleš reportera</span>
           </div>
           {
-            articles.map((article) => (
+            reported.map((article) => (
               <div className="news-item news-item-mini" key={article.id}>
                 <ArticleImage w={80} h={80} article={article} />
                 <div>
@@ -73,6 +71,10 @@ class Home extends React.Component {
             ))
           }
         </div>
+
+        <ReporterFAB />
+
+        <Reporter />
       </div>
     );
   }
@@ -80,6 +82,7 @@ class Home extends React.Component {
 
 const mapStateToProps = (state) => ({
   articles: state.articles,
+  reported: state.reported,
 });
 
 export default connect(mapStateToProps)(Home);

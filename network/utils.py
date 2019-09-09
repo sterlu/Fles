@@ -1,4 +1,5 @@
 import re
+import random
 
 
 def _clean_string(__input):
@@ -70,3 +71,8 @@ def normalize_title(pre_title, main_title, capitalize=False):
         main_title = main_title[0:-4] + '(FOTO)'
 
     return pre_title, main_title
+
+
+def random_cat():
+    categories = ['hronika', 'svet', 'društvo', 'zabava', 'sport', 'vesti', 'kultura']
+    return categories[random.randint(0, len(categories) - 1)]

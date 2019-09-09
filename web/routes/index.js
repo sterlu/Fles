@@ -8,8 +8,9 @@ router.get('/latest', async (req, res, next) => {
     client.connect();
 
     const news = await client.query(`SELECT * FROM generated ORDER BY created DESC LIMIT 16`);
+    const reported = await client.query(`SELECT * FROM reported ORDER BY created DESC LIMIT 20`);
 
-    res.end(JSON.stringify({ articles: news.rows }));
+    res.end(JSON.stringify({ articles: news.rows, reported: reported.rows }));
     client.end();
   } catch (e) {
     console.error(e);

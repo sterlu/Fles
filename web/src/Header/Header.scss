@@ -48,6 +48,7 @@
     padding: 0 20px;
     font-size: 1.8rem;
     transition: all .2s;
+    cursor: pointer;
 
     &:hover {
       background-color: darken(#DC0000, 3%);

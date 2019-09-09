@@ -1,0 +1,53 @@
+.reporter-fab {
+  position: fixed;
+  bottom: 30px;
+  right: 100px;
+  width: 60px;
+  height: 60px;
+  background: #DC0000;
+  color: white;
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all .2s;
+  overflow: hidden;
+
+  &:hover {
+    background-color: darken(#DC0000, 3%);
+  }
+
+  div {
+    position: relative;
+    height: 25px;
+    width: 100%;
+    white-space: nowrap;
+    img, span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      transition: all .2s;
+    }
+    span {
+      opacity: 0;
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 25px;
+    }
+  }
+
+  &:hover {
+    width: 200px;
+    img {
+      opacity: 0;
+    }
+    span {
+      opacity: 1;
+    }
+  }
+}

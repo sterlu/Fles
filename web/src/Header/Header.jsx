@@ -1,18 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Ticker from 'react-ticker';
-
-import './Header.scss';
-
-import logo from './logo.svg';
 import { connect } from 'react-redux';
+import Ticker from 'react-ticker';
+import './Header.scss';
+import logo from './logo.svg';
+import store from '../store';
+
+const open = () => store.dispatch({ type: 'REPORTER_OPEN' });
 
 const Header = ({ articles }) => (
   <div className="nav">
     <div className="nav-primary">
       <div className="container">
-        <Link to="/" className="logo"><img alt="logo" src={logo} height="50" /></Link>
-        <Link to="/reporter" className="reporter-cta">Budi i ti Fleš REPORTER!</Link>
+        <img className="logo" alt="logo" src={logo} height="50" />
+        <span className="reporter-cta" onClick={open}>Budi i ti Fleš REPORTER!</span>
       </div>
     </div>
     <div className="nav-secondary">
