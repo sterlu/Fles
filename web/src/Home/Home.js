@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './Home.scss';
 
 const formatDate = date => (new Date(date)).toTimeString().substr(0, 5);
@@ -15,27 +16,10 @@ const ArticleImage = ({ w, h, article }) => (
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      articles: [],
-    };
-    this.fetchLatest = this.fetchLatest.bind(this);
-  }
-
-  fetchLatest() {
-    const apiBase = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3000';
-    fetch(`${apiBase}/latest`)
-      .then(res => res.json())
-      .then(res => this.setState({ articles: res.articles, }))
-      .catch(console.error);
-    setTimeout(this.fetchLatest, 5 * 60 * 1000);
-  }
-
-  componentWillMount() {
-    this.fetchLatest();
   }
 
   render() {
-    const { articles } = this.state;
+    const { articles } = this.props;
     if (articles.length === 0)
       return <div />;
 
@@ -94,4 +78,8 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+  articles: state.articles,
+});
+
+export default connect(mapStateToProps)(Home);
