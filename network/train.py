@@ -15,11 +15,11 @@ t.reset()
 t.train_from_file('naslovi.input.prepared', 
                   new_model=True,
                   word_level=True,
-                  num_epochs=5,
+                  num_epochs=3,
                   gen_epochs=1,
                   max_length=8,
                   batch_size=2048,
-                  max_words=100000,
+                  max_words=130000,
                   rnn_size=256,
                   rnn_layers=4,
                   dropout=0.2
