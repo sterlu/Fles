@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Ticker from 'react-ticker';
+import { Link } from 'react-router-dom';
 import './Header.scss';
 import logo from './logo.svg';
 import store from '../store';
@@ -11,7 +12,7 @@ const Header = ({ articles }) => (
   <div className="nav">
     <div className="nav-primary">
       <div className="container">
-        <img className="logo" alt="logo" src={logo} height="50" />
+        <Link to="/" className="logo"><img alt="logo" src={logo} height="50" /></Link>
         <span className="reporter-cta" onClick={open}>Budi i ti Fleš REPORTER!</span>
       </div>
     </div>

@@ -1,7 +1,10 @@
 .reporter-fab {
   position: fixed;
   bottom: 30px;
-  right: 100px;
+  right: calc(50vw - 630px);
+  @media (max-width: 1400px) {
+    right: 50px;
+  }
   width: 60px;
   height: 60px;
   background: #DC0000;
@@ -15,6 +18,8 @@
   cursor: pointer;
   transition: all .2s;
   overflow: hidden;
+  z-index: 100;
+  box-shadow: 0 0 5px 1px rgba(black, .3);
 
   &:hover {
     background-color: darken(#DC0000, 3%);

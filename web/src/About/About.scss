@@ -1,0 +1,13 @@
+.about-wrapper {
+  background-color: white;
+  padding: 50px;
+  min-height: calc(100vh - 410px);
+
+  h1 {
+    font-weight: normal;
+  }
+
+  p {
+    max-width: 600px;
+  }
+}

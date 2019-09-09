@@ -1,0 +1,14 @@
+.rekl-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+
+  &.rekl-left {
+    left: -150px;
+  }
+
+  &.rekl-right {
+    right: -150px;
+  }
+}

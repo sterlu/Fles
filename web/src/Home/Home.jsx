@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './Home.scss';
 import Reporter from '../Reporter/Reporter';
 import ReporterFAB from './ReporterFAB/ReporterFAB';
+import { AdLeftCol, AdRightCol } from '../Ads/Ads';
 
 const formatDate = date => (new Date(date)).toTimeString().substr(0, 5);
 
@@ -22,7 +23,7 @@ class Home extends React.Component {
       return <div />;
 
     return (
-      <div className="container home-container">
+      <div className="home-container">
         <div className="main-column">
           <div className="news-item-hero news-item">
             <div>
@@ -75,6 +76,9 @@ class Home extends React.Component {
         <ReporterFAB />
 
         <Reporter />
+
+        <AdLeftCol />
+        <AdRightCol />
       </div>
     );
   }

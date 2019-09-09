@@ -1,0 +1,19 @@
+.footer-wrapper {
+  background-color: #1400ff;
+  height: 200px;
+  padding: 50px 70px;
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    line-height: 50px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

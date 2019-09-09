@@ -8,6 +8,8 @@
   opacity: 0;
   pointer-events: none;
   transition: all .2s;
+  z-index: 110;
+
   &.open {
     opacity: 1;
     pointer-events: all;
@@ -18,10 +20,13 @@
 
   .reporter-container {
     position: absolute;
+    right: calc(50vw - 630px);
+    @media (max-width: 1400px) {
+      right: 50px;
+    }
     box-shadow: 0 0 100px 1px rgba(black, .5);
     background-color: white;
     width: 400px;
-    right: 100px;
     bottom: 0;
     transition: all .2s;
     transform: translateY(50px);
