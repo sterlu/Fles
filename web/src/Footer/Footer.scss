@@ -1,19 +1,37 @@
 .footer-wrapper {
   background-color: #1400ff;
-  height: 200px;
+  height: 250px;
   padding: 50px 70px;
-  display: flex;
-  justify-content: space-between;
+  color: white;
+
+  .flex-container {
+    justify-content: space-between;
+  }
 
   a {
     font-weight: bold;
     text-transform: uppercase;
     color: white;
     text-decoration: none;
-    line-height: 50px;
+    display: inline-block;
+    height: 18px;
+    margin: 26px 0 26px 30px;
+    vertical-align: top;
 
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  .twitter {
+    width: 18px;
+    background-image: url(./twitter.svg);
+  }
+
+  p {
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 50px auto;
   }
 }
