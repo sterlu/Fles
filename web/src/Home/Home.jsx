@@ -64,8 +64,8 @@ class Home extends React.Component {
                   <h2>
                     <b>{article.pre_title}</b> {article.title}
                   </h2>
-                  <h4 className="category">
-                    {article.initials} — {formatDate(article.created)}
+                  <h4 className="meta">
+                    {article.initials || 'NN'} — {formatDate(article.created)}
                   </h4>
                 </div>
               </div>

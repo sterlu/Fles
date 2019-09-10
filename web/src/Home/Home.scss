@@ -2,6 +2,7 @@
   padding: 20px 0;
   background-color: white;
   display: flex;
+  min-height: 100vh;
 
   .main-column {
     flex: 1 1 100%;
@@ -39,6 +40,7 @@
       font-size: 1.1rem;
       margin: .5rem 0;
       opacity: .6;
+      text-transform: uppercase;
     }
   }
 
