@@ -4,9 +4,9 @@ from textgenrnn import textgenrnn
 from flask import Flask, request, jsonify
 from .utils import normalize_title, random_cat
 
-title_model = textgenrnn(weights_path='network/models/5/naslovi_weights.hdf5',
-                         vocab_path='network/models/5/naslovi_vocab.json',
-                         config_path='network/models/5/naslovi_config.json')
+title_model = textgenrnn(weights_path='network/models/7/naslovi_weights.hdf5',
+                         vocab_path='network/models/7/naslovi_vocab.json',
+                         config_path='network/models/7/naslovi_config.json')
 
 pre_model = textgenrnn(weights_path='network/models/5/prednaslovi_weights.hdf5',
                        vocab_path='network/models/5/prednaslovi_vocab.json',
