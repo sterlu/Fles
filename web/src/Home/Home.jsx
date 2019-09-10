@@ -23,41 +23,115 @@ class Home extends React.Component {
       return <div />;
 
     return (
-      <div className="home-container">
-        <div className="main-column">
-          <div className="news-item-hero news-item">
-            <div>
-              <h4 className="category">
-                {articles[0].category.toUpperCase()} — {formatDate(articles[0].created)}
-              </h4>
-              <h2>
-                <b>{articles[0].pre_title}</b> {articles[0].title}
-              </h2>
+      <>
+        <div className="home-container-desktop">
+          <div className="main-column">
+            <div className="news-item-hero news-item">
+              <div>
+                <h4 className="category">
+                  {articles[0].category.toUpperCase()} — {formatDate(articles[0].created)}
+                </h4>
+                <h2>
+                  <b>{articles[0].pre_title}</b> {articles[0].title}
+                </h2>
+              </div>
+              <ArticleImage w={630} h={400} article={articles[0]} />
             </div>
-            <ArticleImage w={630} h={400} article={articles[0]} />
+            <div className="flex-container wrap">
+              {
+                articles.slice(1, 10).map((article) => (
+                  <div className="news-item" key={article.id}>
+                    <ArticleImage w={300} h={200} article={article} />
+                    <h4 className="category">
+                      {article.category.toUpperCase()} — {formatDate(article.created)}
+                    </h4>
+                    <h2>
+                      <b>{article.pre_title}</b> {article.title}
+                    </h2>
+                  </div>
+                ))
+              }
+            </div>
+            <div className="news-item-hero news-item">
+              <div>
+                <h4 className="category">
+                  {articles[10].category.toUpperCase()} — {formatDate(articles[10].created)}
+                </h4>
+                <h2>
+                  <b>{articles[10].pre_title}</b> {articles[10].title}
+                </h2>
+              </div>
+              <ArticleImage w={630} h={400} article={articles[10]} />
+            </div>
+            <div className="flex-container wrap">
+              {
+                articles.slice(11).map((article) => (
+                  <div className="news-item" key={article.id}>
+                    <ArticleImage w={300} h={200} article={article} />
+                    <h4 className="category">
+                      {article.category.toUpperCase()} — {formatDate(article.created)}
+                    </h4>
+                    <h2>
+                      <b>{article.pre_title}</b> {article.title}
+                    </h2>
+                  </div>
+                ))
+              }
+            </div>
           </div>
-          <div className="flex-container wrap">
+          <div className="right-column">
+            <div className="subheader">
+              <span>Vesti Fleš reportera</span>
+            </div>
             {
-              articles.slice(1).map((article) => (
-                <div className="news-item" key={article.id}>
-                  <ArticleImage w={300} h={200} article={article} />
-                  <h4 className="category">
-                    {article.category.toUpperCase()} — {formatDate(article.created)}
-                  </h4>
-                  <h2>
-                    <b>{article.pre_title}</b> {article.title}
-                  </h2>
+              reported.map((article) => (
+                <div className="news-item news-item-mini" key={article.id}>
+                  <ArticleImage w={80} h={80} article={article} />
+                  <div>
+                    <h2>
+                      <b>{article.pre_title}</b> {article.title}
+                    </h2>
+                    <h4 className="meta">
+                      {article.initials || 'NN'} — {formatDate(article.created)}
+                    </h4>
+                  </div>
                 </div>
               ))
             }
           </div>
+
+          <ReporterFAB />
+
+          <Reporter />
+
+          <AdLeftCol />
+          <AdRightCol />
         </div>
-        <div className="right-column">
+
+
+
+        <div className="home-container-mobile">
           <div className="subheader">
-            <span>Vesti Fleš reportera</span>
+            <span>Najnovije</span>
           </div>
           {
-            reported.map((article) => (
+            articles.slice(0, 3).map((article) => (
+              <div className="news-item" key={article.id}>
+                <ArticleImage w={300} h={200} article={article} />
+                <h4 className="category">
+                  {article.category.toUpperCase()} — {formatDate(article.created)}
+                </h4>
+                <h2>
+                  <b>{article.pre_title}</b> {article.title}
+                </h2>
+              </div>
+            ))
+          }
+          <div className="subheader">
+            <span>Fleš reporteri</span>
+          </div>
+          {
+            reported.slice(0, 3).map((article) => (
               <div className="news-item news-item-mini" key={article.id}>
                 <ArticleImage w={80} h={80} article={article} />
                 <div>
@@ -71,15 +145,49 @@ class Home extends React.Component {
               </div>
             ))
           }
+          <div className="subheader">
+            <span>Aktuelno</span>
+          </div>
+          {
+            articles.slice(3, 10).map((article) => (
+              <div className="news-item news-item-mini" key={article.id}>
+                <ArticleImage w={80} h={80} article={article} />
+                <div>
+                  <h2>
+                    <b>{article.pre_title}</b> {article.title}
+                  </h2>
+                  <h4 className="meta">
+                    {article.category.toUpperCase()} — {formatDate(article.created)}
+                  </h4>
+                </div>
+              </div>
+            ))
+          }
+          <div className="subheader">
+            <span>Fleš reporteri</span>
+          </div>
+          {
+            reported.slice(3, 10).map((article) => (
+              <div className="news-item news-item-mini" key={article.id}>
+                <ArticleImage w={80} h={80} article={article} />
+                <div>
+                  <h2>
+                    <b>{article.pre_title}</b> {article.title}
+                  </h2>
+                  <h4 className="meta">
+                    {article.initials || 'NN'} — {formatDate(article.created)}
+                  </h4>
+                </div>
+              </div>
+            ))
+          }
+
+
+          <ReporterFAB />
+
+          <Reporter />
         </div>
-
-        <ReporterFAB />
-
-        <Reporter />
-
-        <AdLeftCol />
-        <AdRightCol />
-      </div>
+      </>
     );
   }
 }

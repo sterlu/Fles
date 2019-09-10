@@ -21,7 +21,8 @@ const About = () => (
 
     <p>
       Projekat su realizovali <a href="https://github.com/sterlu" target="_blank">Nikola
-      Vuković</a> i <a href="http://lomz.net" target="_blank">Vukašin Stančević</a>
+      Vuković</a> i <a href="http://lomz.net" target="_blank">Vukašin Stančević</a>. Kod je dostupan
+      na <a href="https://github.com/sterlu/Fles/" target="_blank">onlajn</a>.
     </p>
 
     <Link to="/">Nazad</Link>

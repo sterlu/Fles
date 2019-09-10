@@ -7,7 +7,7 @@ router.get('/latest', async (req, res, next) => {
   try {
     client.connect();
 
-    const news = await client.query(`SELECT * FROM generated ORDER BY created DESC LIMIT 22`);
+    const news = await client.query(`SELECT * FROM generated ORDER BY created DESC LIMIT 26`);
     const reported = await client.query(`SELECT * FROM reported ORDER BY created DESC LIMIT 30`);
 
     res.end(JSON.stringify({ articles: news.rows, reported: reported.rows }));
