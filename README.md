@@ -3,6 +3,9 @@
 
 Informativni portal baziran na veštačkoj inteligenciji. Drugim rečima: fejk njuz generator.
 
+![Fleš Njuz](https://github.com/sterlu/Fles/blob/master/screenshot.jpg)
+
+
 Pročitajte više [ovde](https://medium.com/@SterLu/750-hiljada-naslova-a-onda-je-tek-počela-akcija-cbd04aeeb7d1).
 
 Podaci i modeli su dostupni [ovde](https://drive.google.com/drive/folders/1WQYL0MzltMvi9DtL8euaZveMwCd2tYpH?usp=sharing).
