@@ -7,9 +7,9 @@ title = textgenrnn(weights_path='network/models/7/naslovi_weights.hdf5',
                    vocab_path='network/models/7/naslovi_vocab.json',
                    config_path='network/models/7/naslovi_config.json')
 
-pre = textgenrnn(weights_path='network/models/5/prednaslovi_weights.hdf5',
-                 vocab_path='network/models/5/prednaslovi_vocab.json',
-                 config_path='network/models/5/prednaslovi_config.json')
+pre = textgenrnn(weights_path='network/models/7/prednaslovi_weights.hdf5',
+                 vocab_path='network/models/7/prednaslovi_vocab.json',
+                 config_path='network/models/7/prednaslovi_config.json')
 
 
 def random_cat():
