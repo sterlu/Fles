@@ -17,6 +17,7 @@ class Reporter extends React.Component {
       suggestions: [],
       loading: false,
       selected: -1,
+      fetchController: null,
     };
     this.handleChange = this.handleChange.bind(this);
     this.fetchSuggestions = this.fetchSuggestions.bind(this);
@@ -34,14 +35,22 @@ class Reporter extends React.Component {
       input: e.target.value,
       loading: true,
     });
+    const { fetchController } = this.state;
+    if (fetchController) fetchController.abort();
     this.state._fetchSuggestions();
   }
 
   fetchSuggestions() {
-    this.setState({ loading: true, selected: -1 });
+    const fetchController = new AbortController();
+    this.setState({
+      loading: true,
+      selected: -1,
+      fetchController,
+    });
     const apiBase = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3000';
-    fetch(`${apiBase}/api/suggest/?prefix=${this.state.input}`)
-      .then(res => res.json())
+    fetch(`${apiBase}/api/suggest/?prefix=${this.state.input}`, {
+      signal: fetchController.signal,
+    }).then(res => res.json())
       .then(res => this.setState({
         suggestions: res,
         loading: false,
@@ -55,14 +64,15 @@ class Reporter extends React.Component {
   }
 
   submit() {
-    this.setState({ selected: -1 });
     const initials = this.initialsRef.value;
     const title = this.state.suggestions[this.state.selected];
+    this.setState({ selected: -1 });
     const apiBase = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3000';
     fetch(`${apiBase}/api/report/?initials=${initials}&title=${title}`)
       .then(res => res.json())
       .then(res => {
         close();
+        res.reported.created = res.reported.created.substr(0, res.reported.created.length - 4);
         prependArticle(res.reported);
         this.setState({ suggestions: [] });
         this.inputRef.value = '';
@@ -101,7 +111,7 @@ class Reporter extends React.Component {
                 {
                   suggestions.map((item, i) => (
                     <h4
-                      key={item}
+                      key={`${item}${i}`}
                       className={i === selected ? 'selected' : ''}
                       onClick={() => this.setState({ selected: i })}
                     >
