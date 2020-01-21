@@ -1,0 +1,14 @@
+nikolavukovic@fles-backend:/etc/supervisor/conf.d$ ls
+node-server.conf  python-api.conf
+nikolavukovic@fles-backend:/etc/supervisor/conf.d$ cat node-server.conf 
+[program:node-server]
+directory=/var/app/Fles/web
+command=npm run start
+environment=PORT=80
+
+nikolavukovic@fles-backend:/etc/supervisor/conf.d$ cat python-api.conf 
+[program:python-api]
+directory=/var/app/Fles
+command=gunicorn --bind 0.0.0.0:5000 network.server:app
+stderr_logfile=/var/log/supervisor/python-api-error.log
+environment=PYTHONPATH=/var/app/Fles
