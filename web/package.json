@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "dev": "react-scripts start",
-    "build": "react-scripts build"
+    "dev": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "build-gh-pages": "REACT_APP_GHPAGES=true react-app-rewired build",
+    "deploy-gh-pages": "git subtree push --prefix web/build origin gh-pages"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
+    "csv-loader": "^3.0.2",
     "express": "~4.16.1",
     "express-http-proxy": "^1.5.1",
     "http-errors": "~1.6.3",
@@ -17,8 +20,10 @@
     "lodash.debounce": "^4.0.8",
     "morgan": "~1.9.1",
     "node-sass": "^4.12.0",
+    "papaparse": "^5.1.1",
     "pg": "^7.12.0",
     "react": "^16.9.0",
+    "react-app-rewired": "^2.1.5",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
